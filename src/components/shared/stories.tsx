@@ -38,34 +38,34 @@ export const Stories: React.FC<Props> = ({ className }) => {
 	return (
 		<>
 			<Container className={cn('overflow-hidden', className)}>
-				<ScrollContainer className='flex items-center gap-2 my-10 justify-between'>
+				<ScrollContainer className='flex items-center gap-3 my-6 justify-start'>
 					{stories.length === 0 &&
 						[...Array(6)].map((_, index) => (
 							<div
 								key={index}
-								className='w-[200px] h-[250px] bg-gray-200 rounded-md animate-pulse'
+								className='w-[140px] sm:w-[180px] md:w-[200px] h-[200px] sm:h-[230px] md:h-[250px] bg-gray-200 rounded-md animate-pulse'
 							/>
 						))}
 					{stories.map((story) => (
 						<img
 							key={story.id}
 							onClick={() => onClickStory(story)}
-							className='rounded-md cursor-pointer'
-							height={250}
-							width={200}
+							className='rounded-md cursor-pointer object-cover w-[140px] sm:w-[180px] md:w-[200px] h-[200px] sm:h-[230px] md:h-[250px] transition-transform hover:scale-[1.02]'
 							src={story.previewImageUrl}
+							alt={'' + story.id}
 						/>
 					))}
 				</ScrollContainer>
 			</Container>
+
 			{open && (
-				<div className='absolute left-0 top-0 w-full h-full bg-black/80 flex items-center justify-center z-30'>
-					<div className='relative' style={{ width: 520 }}>
+				<div className='fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4'>
+					<div className='relative w-full max-w-[520px] aspect-[9/16] rounded-xl overflow-hidden shadow-lg'>
 						<button
-							className='absolute -right-10 -top-5 z-30'
+							className='absolute right-3 top-3 z-30 bg-black/40 hover:bg-black/60 rounded-full p-2 transition'
 							onClick={() => setOpen(false)}
 						>
-							<X className='absolute top-0 right-0 w-8 h-8 text-white/50' />
+							<X className='w-6 h-6 text-white' />
 						</button>
 
 						<ReactStories
@@ -76,8 +76,8 @@ export const Stories: React.FC<Props> = ({ className }) => {
 								})) || []
 							}
 							defaultInterval={3000}
-							width={520}
-							height={800}
+							width='100%'
+							height='100%'
 						/>
 					</div>
 				</div>
