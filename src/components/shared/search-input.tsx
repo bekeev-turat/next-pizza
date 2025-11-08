@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/shared/lub/utils'
+import { cn } from '@/shared/lib/utils'
 import { Api } from '@/shared/services/api-client'
 import { Product } from '@prisma/client'
 import { Search } from 'lucide-react'

@@ -5,7 +5,7 @@ import { Button } from '../ui'
 import { ArrowRight, ShoppingCart } from 'lucide-react'
 import { useCartStore } from '@/shared/store'
 import { CartDrawer } from './cart-drawer'
-import { cn } from '@/shared/lub/utils'
+import { cn } from '@/shared/lib/utils'
 import { useShallow } from 'zustand/shallow'
 
 interface Props {

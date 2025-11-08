@@ -18,9 +18,9 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { CartDrawerItem } from './cart-drawer-item'
 import { PizzaSize, PizzaType } from '@/shared/constants/pizza'
 import { Title } from './title'
-import { cn } from '@/shared/lub/utils'
+import { cn } from '@/shared/lib/utils'
 import { useCart } from '@/shared/hooks'
-import { getCartItemDetails } from '@/shared/lub/get-cart-item-details'
+import { getCartItemDetails } from '@/shared/lib/get-cart-item-details'
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
 	const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart()

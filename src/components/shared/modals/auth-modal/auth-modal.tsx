@@ -7,6 +7,7 @@ import { LoginForm } from './forms/login-form'
 import { RegisterForm } from './forms/register-form'
 import { Button, Dialog } from '@/components/ui'
 import { DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { ScrollContainer } from '@/components/ui/scroll-container'
 
 interface Props {
 	open: boolean
@@ -26,63 +27,66 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
 
 	return (
 		<Dialog open={open} onOpenChange={handleClose}>
-			<DialogContent className='w-[450px] bg-white p-10'>
-				<DialogTitle></DialogTitle>
-				{type === 'login' ? (
-					<LoginForm onClose={handleClose} />
-				) : (
-					<RegisterForm onClose={handleClose} />
-				)}
+			<DialogContent className='rounded-2xl w-[90vw] sm:w-[450px] h-[90vh] sm:h-auto bg-white p-5 sm:p-10'>
+				<ScrollContainer direction='y' className='flex flex-col gap-5'>
+					<DialogTitle className='hidden'></DialogTitle>
+					{type === 'login' ? (
+						<LoginForm onClose={handleClose} />
+					) : (
+						<RegisterForm onClose={handleClose} />
+					)}
 
-				<hr />
-				<div className='flex gap-2'>
+					<hr />
+
+					<div className='flex gap-2'>
+						<Button
+							variant='secondary'
+							onClick={() =>
+								signIn('github', {
+									callbackUrl: '/',
+									redirect: true,
+								})
+							}
+							type='button'
+							className='gap-2 h-12 p-2 flex-1'
+						>
+							<img
+								className='w-6 h-6'
+								src='https://github.githubassets.com/favicons/favicon.svg'
+								alt='github'
+							/>
+							GitHub
+						</Button>
+
+						<Button
+							variant='secondary'
+							onClick={() =>
+								signIn('google', {
+									callbackUrl: '/',
+									redirect: true,
+								})
+							}
+							type='button'
+							className='gap-2 h-12 p-2 flex-1'
+						>
+							<img
+								className='w-6 h-6'
+								src='https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg'
+								alt='google icon'
+							/>
+							Google
+						</Button>
+					</div>
+
 					<Button
-						variant='secondary'
-						onClick={() =>
-							signIn('github', {
-								callbackUrl: '/',
-								redirect: true,
-							})
-						}
+						variant='outline'
+						onClick={onSwitchType}
 						type='button'
-						className='gap-2 h-12 p-2 flex-1'
+						className='h-12 w-full'
 					>
-						<img
-							className='w-6 h-6'
-							src='https://github.githubassets.com/favicons/favicon.svg'
-							alt='github'
-						/>
-						GitHub
+						{type !== 'login' ? 'Войти' : 'Регистрация'}
 					</Button>
-
-					<Button
-						variant='secondary'
-						onClick={() =>
-							signIn('google', {
-								callbackUrl: '/',
-								redirect: true,
-							})
-						}
-						type='button'
-						className='gap-2 h-12 p-2 flex-1'
-					>
-						<img
-							className='w-6 h-6'
-							src='https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg'
-							alt='google icon'
-						/>
-						Google
-					</Button>
-				</div>
-
-				<Button
-					variant='outline'
-					onClick={onSwitchType}
-					type='button'
-					className='h-12'
-				>
-					{type !== 'login' ? 'Войти' : 'Регистрация'}
-				</Button>
+				</ScrollContainer>
 			</DialogContent>
 		</Dialog>
 	)

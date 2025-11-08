@@ -6,10 +6,10 @@ import { OrderStatus, Prisma } from '@prisma/client'
 import { hashSync } from 'bcrypt'
 import { cookies } from 'next/headers'
 import { PayOrderTemplate } from '@/components/shared/email-templates'
-import { getUserSession } from '@/shared/lub/get-user-session'
+import { getUserSession } from '@/shared/lib/get-user-session'
 import { CheckoutFormValues } from '@/shared/constants'
-import { sendEmail } from '@/shared/lub'
-import { createPayment } from '@/shared/lub/create-payment'
+import { sendEmail } from '@/shared/lib'
+import { createPayment } from '@/shared/lib/create-payment'
 
 export async function createOrder(data: CheckoutFormValues) {
 	try {

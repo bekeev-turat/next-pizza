@@ -8,8 +8,8 @@ import { Title } from './title'
 import { Button } from '../ui'
 import { GroupVariants } from './group-variants'
 import { PizzaSize, PizzaType, pizzaTypes } from '@/shared/constants'
-import { cn } from '@/shared/lub/utils'
-import { getPizzaDetails } from '@/shared/lub'
+import { cn } from '@/shared/lib/utils'
+import { getPizzaDetails } from '@/shared/lib'
 import { usePizzaOptions } from '@/shared/hooks'
 import { IngredientItem } from '@/components'
 
@@ -61,10 +61,10 @@ export const ChoosePizzaForm: React.FC<Props> = ({
 	}
 
 	return (
-		<div className={cn(className, 'flex flex-1')}>
-			<PizzaImage imageUrl={imageUrl} size={size} />
+		<div className={cn(className, 'flex flex-1 flex-col justify-center items-center lg:flex-row gap-32 lg:gap-0 pt-32 lg:pt-0')}>
+			<PizzaImage className='h-[450px]' imageUrl={imageUrl} size={size} />
 
-			<div className='w-[490px] bg-[#f7f6f5] p-7'>
+			<div className='sm:w-[490px] bg-[#f7f6f5] p-3 sm:p-7'>
 				<Title text={name} size='md' className='font-extrabold mb-1' />
 
 				<p className='text-gray-400'>{textDetails}</p>

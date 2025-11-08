@@ -1,7 +1,7 @@
 import React from 'react'
 import { useCartStore } from '../store'
 import { CreateCartItemValues } from '../services/dto/cart.dto'
-import { CartStateItem } from '../lub/get-cart-details'
+import { CartStateItem } from '../lib/get-cart-details'
 
 type ReturnProps = {
 	totalAmount: number

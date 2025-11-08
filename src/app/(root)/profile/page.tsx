@@ -1,4 +1,4 @@
-import { getUserSession } from '@/shared/lub/get-user-session'
+import { getUserSession } from '@/shared/lib/get-user-session'
 import { prisma } from '../../../../prisma/prisma-client'
 import { redirect } from 'next/navigation'
 import { ProfileForm } from '@/components/shared/profile-form'

@@ -2,7 +2,7 @@ import React from 'react'
 import { CheckoutItemDetails } from './checkout-item-details'
 import { ArrowRight, Package, Percent, Truck } from 'lucide-react'
 import { Button, Skeleton } from '../ui'
-import { cn } from '@/shared/lub/utils'
+import { cn } from '@/shared/lib/utils'
 import { WhiteBlock } from './white-block'
 import { ErrorText } from './error-text'
 

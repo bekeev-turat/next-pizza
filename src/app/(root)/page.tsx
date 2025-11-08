@@ -1,9 +1,10 @@
 import { Container, Filters, Title, TopBar } from '@/components'
-import { ProductsGroupList } from '@/components/shared/'
-import { sendEmail } from '@/shared/lub'
-import { findPizzas, GetSearchParams } from '@/shared/lub/find-pizzas'
+import { ProductsGroupList, SortPopup } from '@/components/shared/'
+import { sendEmail } from '@/shared/lib'
+import { findPizzas, GetSearchParams } from '@/shared/lib/find-pizzas'
 import { Suspense } from 'react'
 import { Stories } from '@/components/shared'
+import { FiltersDialog } from '@/components/shared/filters-dialog'
 
 export default async function Home({
 	searchParams,
@@ -20,7 +21,7 @@ export default async function Home({
 	)
 	return (
 		<>
-			<Container className='mt-10'>
+			<Container className='mt-10 bg-white'>
 				<Title text='Все пиццы' size='lg' className='font-extrabold' />
 			</Container>
 
@@ -32,16 +33,15 @@ export default async function Home({
 
 			<Stories />
 
-			<Container className='mt-10 pb-14'>
-				<div className='flex gap-[80px]'>
-					{/* Фильтрация */}
-					<div className='w-[250px]'>
-						<Suspense>
-							<Filters />
-						</Suspense>
+			<Container className='mt-10 pb-14 px-5'>
+				<div className='flex flex-col lg:flex-row gap-5 lg:gap-15'>
+					<div className='flex justify-between items-center lg:items-start flex-col sm:flex-row gap-2'>
+						<FiltersDialog />
+						<div className='lg:hidden'>
+							<SortPopup />
+						</div>
 					</div>
 
-					{/* Список товаров */}
 					<div className='flex-1'>
 						<div className='flex flex-col gap-16'>
 							{categories.map(

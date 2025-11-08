@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { WhiteBlock } from '../white-block'
-import { CartStateItem } from '@/shared/lub/get-cart-details'
-import { getCartItemDetails } from '@/shared/lub/get-cart-item-details'
+import { CartStateItem } from '@/shared/lib/get-cart-details'
+import { getCartItemDetails } from '@/shared/lib/get-cart-item-details'
 import { PizzaSize, PizzaType } from '@/shared/constants'
 import { CheckoutItemSkeleton } from '../checkout-item-skeleton'
 import { CheckoutItem } from '../checkout-item'
@@ -33,7 +33,7 @@ export const CheckoutCart: React.FC<Props> = ({
 				{loading
 					? [...Array(4)].map((_, index) => (
 							<CheckoutItemSkeleton key={index} />
-					  ))
+						))
 					: items.map((item) => (
 							<CheckoutItem
 								key={item.id}
@@ -53,7 +53,7 @@ export const CheckoutCart: React.FC<Props> = ({
 								}
 								onClickRemove={() => removeCartItem(item.id)}
 							/>
-					  ))}
+						))}
 			</div>
 		</WhiteBlock>
 	)

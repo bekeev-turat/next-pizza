@@ -35,7 +35,7 @@ export const findPizzas = async (params: GetSearchParams) => {
 										in: ingredientsIdArr,
 									},
 								},
-						  }
+							}
 						: undefined,
 					items: {
 						some: {

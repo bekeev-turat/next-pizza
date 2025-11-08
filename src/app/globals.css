@@ -7,7 +7,10 @@
 	--color-card-foreground: hsl(20 14.3% 4.1%);
 	--color-popover: hsl(0 0% 100%);
 	--color-popover-foreground: hsl(20 14.3% 4.1%);
-	--color-primary: hsl(22 100% 50%);
+	/* --color-primary: hsl(22 100% 50%); */
+	--color-primary: hsl(14, 98%, 49%);
+	/* --color-primary: hsl(44, 100%, 59%); */
+	/* --color-primary: hsl(46, 100%, 66%); */
 	--color-primary-foreground: hsl(60 9.1% 97.8%);
 	--color-secondary: hsl(32 100% 98%);
 	--color-secondary-foreground: hsl(24 9.8% 10%);
@@ -51,6 +54,15 @@ html {
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
 	background: #c9c9cb;
+}
+
+/* globals.scss */
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
 }
 
 @layer utilities {

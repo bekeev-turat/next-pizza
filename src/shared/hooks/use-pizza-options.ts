@@ -3,7 +3,7 @@ import React from 'react'
 import { useSet } from 'react-use'
 import { ProductItem } from '@prisma/client'
 import { Variant } from '@/components/shared/group-variants'
-import { getAvailablePizzaSizes } from '../lub'
+import { getAvailablePizzaSizes } from '../lib'
 
 interface ReturnProps {
 	size: PizzaSize
