@@ -10,10 +10,10 @@ import { ArrowUpDown } from 'lucide-react'
 import { useSort, SortType } from '@/shared/hooks/use-sort'
 
 const sortOptions = [
-	{ label: 'Популярное', value: 'popular' },
-	{ label: 'Цена (по возрастанию)', value: 'price_asc' },
-	{ label: 'Цена (по убыванию)', value: 'price_desc' },
-	{ label: 'Алфавит', value: 'alphabet' },
+	// { label: 'Популярное', value: 'popular' },
+	{ label: 'Цена (по возрастанию)', value: 'asc' },
+	{ label: 'Цена (по убыванию)', value: 'desc' },
+	// { label: 'Алфавит', value: 'alphabet' },
 ]
 
 export const SortPopup = () => {
@@ -25,7 +25,7 @@ export const SortPopup = () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger className='inline-flex items-center gap-2 bg-gray-50 px-5 h-[52px] rounded-2xl'>
 				<ArrowUpDown size={16} />
-				
+
 				<b>Сортировка:</b>
 				<b className='text-primary'>{currentLabel}</b>
 			</DropdownMenuTrigger>

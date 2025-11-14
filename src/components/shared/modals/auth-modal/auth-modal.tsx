@@ -1,6 +1,5 @@
 'use client'
 
-// TODO
 import { signIn } from 'next-auth/react'
 import React from 'react'
 import { LoginForm } from './forms/login-form'

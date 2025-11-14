@@ -3,7 +3,7 @@ import GitHubProvider from 'next-auth/providers/github'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GoogleProvider from 'next-auth/providers/google'
 
-import { prisma } from '../../../prisma/prisma-client'
+import { prisma } from '@/shared/lib'
 import { compare, hashSync } from 'bcrypt'
 import { UserRole } from '@prisma/client'
 

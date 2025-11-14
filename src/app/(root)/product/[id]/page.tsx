@@ -1,5 +1,5 @@
 import { Container, ProductForm } from '@/components/shared'
-import { prisma } from '../../../../../prisma/prisma-client'
+import { prisma } from '../../../../shared/lib/prisma-client'
 import { notFound } from 'next/navigation'
 
 export default async function ProductPage({
@@ -29,7 +29,7 @@ export default async function ProductPage({
 	if (!product) {
 		return notFound()
 	}
-console.log(product);
+	console.log(product)
 
 	return (
 		<Container className='flex flex-col my-10'>

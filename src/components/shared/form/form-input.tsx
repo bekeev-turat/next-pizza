@@ -1,14 +1,9 @@
-'use client'
-// TODO
+import React from 'react'
 import { useFormContext } from 'react-hook-form'
-import { Input } from '@/components'
-import { ErrorText } from '@/components/shared/error-text'
-import { RequiredSymbol } from '@/components/shared/required-symbol'
-import { ClearButton } from '@/components/shared/clear-button'
-// import { Input } from '../../ui/input';
-// import { ClearButton } from '../clear-button';
-// import { ErrorText } from '../error-text';
-// import { RequiredSymbol } from '../required-symbol';
+import { RequiredSymbol } from '../required-symbol'
+import { Input } from '@/components/ui/input'
+import { ClearButton } from '../clear-button'
+import { ErrorText } from '../error-text'
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 	name: string
@@ -20,6 +15,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 export const FormInput: React.FC<Props> = ({
 	className,
 	name,
+	type = 'text',
 	label,
 	required,
 	...props
@@ -31,8 +27,9 @@ export const FormInput: React.FC<Props> = ({
 		setValue,
 	} = useFormContext()
 
-	const value = watch(name)
-	const errorText = errors[name]?.message as string
+	const errorText = errors?.[name]?.message as string
+
+	const text = watch(name)
 
 	const onClickClear = () => {
 		setValue(name, '', { shouldValidate: true })
@@ -47,12 +44,17 @@ export const FormInput: React.FC<Props> = ({
 			)}
 
 			<div className='relative'>
-				<Input className='h-12 text-md' {...register(name)} {...props} />
+				<Input
+					type={type}
+					className='h-12 text-md'
+					{...register(name)}
+					{...props}
+				/>
 
-				{value && <ClearButton onClick={onClickClear} />}
+				{Boolean(text) && <ClearButton onClick={onClickClear} />}
 			</div>
 
-			{errorText && <ErrorText text={errorText} className='mt-2' />}
+			{errorText && <ErrorText text={errorText} />}
 		</div>
 	)
 }

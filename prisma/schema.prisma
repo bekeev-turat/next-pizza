@@ -16,7 +16,7 @@ model User {
     role     UserRole  @default(USER)
     verified DateTime?
 
-    provider   String?    
+    provider   String?
     providerId String?
 
     cart             Cart?

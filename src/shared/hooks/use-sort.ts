@@ -1,4 +1,5 @@
 'use client'
+
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 
@@ -8,12 +9,12 @@ export const useSort = () => {
 	const searchParams = useSearchParams()
 	const router = useRouter()
 
-	const currentSort = (searchParams.get('sort') as SortType) || 'popular'
+	const currentSort = (searchParams.get('sortBy') as SortType) || 'popular'
 
 	const setSort = useCallback(
 		(sort: SortType) => {
 			const params = new URLSearchParams(searchParams.toString())
-			params.set('sort', sort)
+			params.set('sortBy', sort)
 			router.push(`?${params.toString()}`)
 		},
 		[router, searchParams],

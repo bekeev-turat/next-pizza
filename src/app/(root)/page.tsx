@@ -1,8 +1,7 @@
-import { Container, Filters, Title, TopBar } from '@/components'
+import { Container, Title, TopBar } from '@/components'
 import { ProductsGroupList, SortPopup } from '@/components/shared/'
 import { sendEmail } from '@/shared/lib'
 import { findPizzas, GetSearchParams } from '@/shared/lib/find-pizzas'
-import { Suspense } from 'react'
 import { Stories } from '@/components/shared'
 import { FiltersDialog } from '@/components/shared/filters-dialog'
 

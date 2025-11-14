@@ -1,14 +1,13 @@
-import { PaymentCallbackData } from '@/@types/yookassa'
-import { prisma } from '../../../../../prisma/prisma-client'
+import { prisma } from '@/shared/lib'
 import { CartItemDTO } from '@/shared/services/dto/cart.dto'
 import { OrderStatus } from '@prisma/client'
 import { NextRequest, NextResponse } from 'next/server'
-import { sendEmail } from '@/shared/lub'
+import { sendEmail } from '@/shared/lib'
 import { OrderSuccessTemplate } from '@/components/shared/email-templates/order-success'
 
 export async function POST(req: NextRequest) {
 	try {
-		const body = (await req.json()) as PaymentCallbackData
+		const body = await req.json()
 
 		const order = await prisma.order.findFirst({
 			where: {
