@@ -3,13 +3,12 @@ import Stripe from 'stripe'
 interface Props {
 	description: string
 	orderId: number
-	amount: number // в рублях (или другой валюте)
+	amount: number // в сомах
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
 
 export async function createPayment(details: Props) {
-	// Stripe работает с суммой в *копейках* (или центах)
 	const amountInCents = Math.round(details.amount * 100)
 
 	const session = await stripe.checkout.sessions.create({
@@ -17,7 +16,7 @@ export async function createPayment(details: Props) {
 		line_items: [
 			{
 				price_data: {
-					currency: 'rub',
+					currency: 'kgs',
 					product_data: {
 						name: details.description,
 					},
@@ -34,7 +33,6 @@ export async function createPayment(details: Props) {
 		cancel_url: process.env.STRIPE_CANCEL_URL!,
 	})
 
-	// Stripe возвращает URL на свою страницу оплаты
 	return {
 		id: session.id,
 		url: session.url,

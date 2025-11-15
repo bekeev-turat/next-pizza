@@ -2,7 +2,7 @@ import { cn } from '@/shared/lib/utils'
 
 interface Props {
 	name: string
-	details: string
+	details?: string
 	className?: string
 }
 

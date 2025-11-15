@@ -5,6 +5,7 @@ import { Button, Skeleton } from '../ui'
 import { cn } from '@/shared/lib/utils'
 import { WhiteBlock } from './white-block'
 import { ErrorText } from './error-text'
+import { CheckoutFormValues } from '@/shared/constants'
 
 const VAT = 15
 const DELIVERY_PRICE = 250

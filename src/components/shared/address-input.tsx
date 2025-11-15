@@ -9,12 +9,15 @@ interface Props {
 	onChange: (address: string) => void
 }
 
+type Library = 'places' | 'geometry' | 'drawing' | 'visualization'
+const LIBRARIES = ['places' as Library]
+
 export const AddressInput: React.FC<Props> = ({ apiKey, value, onChange }) => {
 	const inputRef = useRef<HTMLInputElement>(null)
 
 	const { isLoaded } = useJsApiLoader({
 		googleMapsApiKey: apiKey,
-		libraries: ['places'],
+		libraries: LIBRARIES,
 	})
 
 	useEffect(() => {

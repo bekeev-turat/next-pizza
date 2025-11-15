@@ -42,11 +42,11 @@ export default function CheckoutPage() {
 			const data = await Api.auth.getMe()
 
 			const fullName = data.fullName ?? ''
-			const [firstName = '', lastName = ''] = fullName.split(' ')
+			const [firstName, lastName] = fullName ? fullName.split(' ') : ['', '']
 
 			form.setValue('firstName', firstName || '')
 			form.setValue('lastName', lastName || '')
-			form.setValue('email', data.email || '')
+			form.setValue('email', data.email ?? '')
 		}
 
 		if (session) {
@@ -95,7 +95,6 @@ export default function CheckoutPage() {
 			<FormProvider {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)}>
 					<div className='flex flex-col lg:flex-row gap-10'>
-						{/* Левая часть */}
 						<div className='flex flex-col gap-10 flex-1 mb-20'>
 							<CheckoutCart
 								onClickCountButton={onClickCountButton}
@@ -121,7 +120,6 @@ export default function CheckoutPage() {
 							/>
 						</div>
 
-						{/* Правая часть */}
 						<div className='max-w-[450px]'>
 							<CheckoutSidebar
 								totalAmount={totalAmount}
