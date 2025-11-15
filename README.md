@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Pizza
 
-## Getting Started
+[Демо-сайт](https://next-pizza-k7t0udwwu-bekeev-turats-projects.vercel.app/)  
 
-First, run the development server:
+Проект создан по мотивам [видео-урока](https://www.youtube.com/watch?v=GUwizGbY4cc&t=3s) с улучшениями: исправлены ошибки, добавлена адаптивность и улучшен интерфейс.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Описание
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next Pizza — современное веб-приложение с функционалом:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Меню пиццы с корзиной и оплатой через **Stripe**
+- Регистрация и вход через **Google** и **GitHub**
+- Адаптивный интерфейс под мобильные устройства
+- Отправка писем через **Resend** и **Nodemailer**
+- Карты через **Google Maps API**
+- Формы с валидацией через **React Hook Form + Zod**
+- Глобальное состояние через **Zustand**
+- Анимации через **tw-animate-css**
+- UI-компоненты от **Radix UI**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Технологии
 
-## Learn More
+- **Next.js 14** + **React 18**
+- **TypeScript**
+- **Tailwind CSS 4**
+- **Prisma + PostgreSQL**
+- **NextAuth.js** для аутентификации
+- **Stripe** для оплаты
+- **Mapbox / Google Maps API**
+- **Zod**, **React Hook Form**, **Zustand**
+- **Radix UI**, **clsx**, **tailwind-merge**
 
-To learn more about Next.js, take a look at the following resources:
+## Особенности
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Полностью адаптивный интерфейс
+- Улучшенный UX и исправленные ошибки из видео-урока
+- Используются современные подходы для управления состоянием и формами
+- Лёгкая интеграция с API и платежными системами
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Просмотр проекта
 
-## Deploy on Vercel
+- [Ссылка на сайт](https://next-pizza-k7t0udwwu-bekeev-turats-projects.vercel.app/)  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Проект уже развернут и доступен онлайн.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Структура проекта
+
+- `/app` — страницы и маршруты
+- `/components` — переиспользуемые UI-компоненты
+- `/lib` — утилиты и API-клиенты
+- `/hooks` — кастомные React хуки
+- `/prisma` — схемы и миграции базы данных
+- `/styles` — Tailwind
+
+## Автор
+
+**Бекеев Турат**  
+
+---
+
+Проект демонстрирует современные подходы к фронтенду и бэкенду на Next.js и готов к дальнейшему развитию.
