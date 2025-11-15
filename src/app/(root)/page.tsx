@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { Container, Title, TopBar } from '@/components'
 import { ProductsGroupList, SortPopup } from '@/components/shared/'
 import { sendEmail } from '@/shared/lib'

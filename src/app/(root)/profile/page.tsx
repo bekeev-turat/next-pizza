@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { getUserSession } from '@/shared/lib/get-user-session'
 import { prisma } from '@/shared/lib'
 import { redirect } from 'next/navigation'
